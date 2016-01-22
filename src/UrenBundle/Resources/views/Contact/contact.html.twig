@@ -1,0 +1,21 @@
+{% extends 'UrenBundle::base.html.twig' %}
+
+{% block body %}
+    {% form_theme form 'bootstrap_3_layout.html.twig' %}
+    {# {% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %} #}
+
+    <div class="container" style="margin-left:15%; margin-top:8%;">
+        <form action="{{ path('uren_contact_contact') }}" method="post" class="blogger">
+            {{ form_errors(form) }}
+
+            {{ form_row(form.name) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.subject) }}
+            {{ form_row(form.body) }}
+
+            {{ form_rest(form) }}
+
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+{% endblock %}

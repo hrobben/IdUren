@@ -1,0 +1,60 @@
+{# src/UrenBundle/Resources/views/base.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}IDcollege{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/uren/css/bootstrap.min.css') }}">
+    {% endblock %}
+    {% block jsheader %}
+    {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-inverse ">
+    <div class="container-fluid">
+        {% block navigation %}
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Uren registratie</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <!-- menu -->
+            <ul class="nav navbar-nav ">
+                <li class="active"><a href="{{ path('uren_default_index') }}">Home</a></li>
+                <li class="active"><a href="{{ path('uren_default_invoer') }}">Invoeren</a></li>
+                <li class="active"><a href="{{ path('uren_default_opvraag') }}">Opvragen</a></li>
+                <li class="active"><a href="{{ path('uren_contact_contact') }}">Contact</a></li>
+                <li class="active"><a href="{{ path('uren_instellen_instellen') }}">Persoonlijke Instelling</a></li><!-- Dit komt alleen als er iemand ingelogd is. -->
+            </ul>
+            <!-- login -->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ path('signup_route') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="{{ path('login_route') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+        {%  endblock %}
+    </div>
+</nav>
+{% block body %}
+content
+{% endblock %}
+<footer>
+    <div class="container">
+        {% block footer %}
+        <h5>copyright &copy; IDCollege</h5>
+        {% endblock %}
+    </div>
+    {% block jsfooter %}
+        <script src="{{ asset('bundles/uren/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('bundles/uren/js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+</footer>
+</body>
+</html>
