@@ -1,0 +1,4 @@
+# src/UrenBundle/Resources/config/config.yml
+parameters:
+    # Uren contact email address
+    uren.emails.contact_email: hrobben@robusoft.nl
