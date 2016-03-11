@@ -3,8 +3,13 @@
 {% block body %}
     <div class="container">
         <div class="jumbotron">
-            <h1>Welkom {{ firstName }} {{ lastName }}</h1>
-            <p>U heeft nu toegang tot het registeren van uren!</p>
+            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                <h1>Welkom {{ firstName }} {{ lastName }}</h1>
+                <p>U heeft nu toegang tot het registeren van uren!</p>
+            {% else %}
+                <h1>Welkom Gast gebruiker</h1>
+                <p>U heeft nog geen toegang tot het registeren van uren! Daarvoor moet u zich eerst aanmelden!</p>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

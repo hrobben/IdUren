@@ -35,10 +35,10 @@
             </ul>
             <!-- login -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ path('signup_route') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
-                    <li><a href="{{ path('login_route') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                 {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                    <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                 {%  else %}
+                    <li><a href="{{ path('signup_route') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="{{ path('login_route') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 {% endif %}
             </ul>

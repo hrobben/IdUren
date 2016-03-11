@@ -12,8 +12,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $firstName = 'Henry';
-        $lastName = 'Robben';
+        $firstName = $this->getUser();
+        $lastName = '';
         return $this->render('UrenBundle:Default:index.html.twig', [
             'firstName' => $firstName,
             'lastName' => $lastName

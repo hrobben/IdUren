@@ -25,6 +25,7 @@ class SecurityController extends Controller
             'UrenBundle:Security:login.html.twig',
             array(
                 // last username entered by the user
+                //'csrf_token' => '',
                 'last_username' => $lastUsername,
                 'error'         => $error,
             )

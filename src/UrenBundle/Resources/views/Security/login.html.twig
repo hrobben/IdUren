@@ -27,12 +27,13 @@
                         <label for="lg_remember">remember</label>
                     </div>
                 </div>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                 <button type="submit" class="btn btn-primary" id="login">Login</button>
             </div>
             <br>
             <div class="etc-login-form">
                 <p>forgot your password? <a href="#">click here</a></p>
-                <p>new user? <a href="/signup">create new account</a></p>
+                <p>new user? <a href="{{ path('fos_user_registration_register') }}">create new account</a></p>
             </div>
         </form>
     </div>
