@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>time_registration</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ time_registration.id }}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ time_registration.userId }}</td>
+            </tr>
+            <tr>
+                <th>Starttime</th>
+                <td>{% if time_registration.startTime %}{{ time_registration.startTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Endtime</th>
+                <td>{% if time_registration.endTime %}{{ time_registration.endTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('time_registration_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('time_registration_edit', { 'id': time_registration.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
