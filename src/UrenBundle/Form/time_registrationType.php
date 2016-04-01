@@ -16,8 +16,8 @@ class time_registrationType extends AbstractType
     {
         $builder
             ->add('userId')
-            ->add('startTime', 'datetime')
-            ->add('endTime', 'datetime')
+            ->add('startTime')
+            ->add('endTime')
         ;
     }
     

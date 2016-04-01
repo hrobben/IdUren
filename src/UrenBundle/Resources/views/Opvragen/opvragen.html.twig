@@ -14,29 +14,43 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>Datum</th>
-                <th>Week</th>
-                <th>Begin</th>
-                <th>Eind</th>
-                <th>Pauze</th>
-                <th>Uurloon</th>
-                <th>Totale Uren</th>
-                <th>Totale Bedrag</th>
-            </tr>
+                <th>Id</th>
+                <th>Userid</th>
+                <th>Starttime</th>
+                <th>Endtime</th>
+                <th>Actions</th>
+           </tr>
             </thead>
             <tbody>
+            {% for time_registration in time_registrations %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><a href="{{ path('time_registration_show', { 'id': time_registration.id }) }}">{{ time_registration.id }}</a></td>
+                <td>{{ time_registration.userId }}</td>
+                <td>{% if time_registration.startTime %}{{ time_registration.startTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if time_registration.endTime %}{{ time_registration.endTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('time_registration_show', { 'id': time_registration.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('time_registration_edit', { 'id': time_registration.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
                 <td><button type="submit" class="btn btn-danger" id="delete">Delete</button></td>
+                <td><button type="submit" class="btn btn-success" id="new">New</button></td>
             </tr>
             </tbody>
+            {% endfor %}
         </table>
     </div>
+
+
+    <ul>
+        <li>
+            <a href="{{ path('time_registration_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+
 {% endblock %}

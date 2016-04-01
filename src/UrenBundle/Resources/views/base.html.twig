@@ -28,10 +28,14 @@
             <!-- menu -->
             <ul class="nav navbar-nav ">
                 <li class="active"><a href="{{ path('uren_default_index') }}">Home</a></li>
-                <li class="active"><a href="{{ path('uren_default_invoer') }}">Invoeren</a></li>
-                <li class="active"><a href="{{ path('uren_default_opvraag') }}">Opvragen</a></li>
+                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                    <li class="active"><a href="{{ path('uren_default_invoer') }}">Invoeren</a></li>
+                    <li class="active"><a href="{{ path('uren_default_opvraag') }}">Opvragen</a></li>
+                {% endif %}
                 <li class="active"><a href="{{ path('uren_contact_contact') }}">Contact</a></li>
-                <li class="active"><a href="{{ path('uren_instellen_instellen') }}">Persoonlijke Instelling</a></li><!-- Dit komt alleen als er iemand ingelogd is. -->
+                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                    <li class="active"><a href="{{ path('uren_instellen_instellen') }}">Persoonlijke Instelling</a></li><!-- Dit komt alleen als er iemand ingelogd is. -->
+                {% endif %}
             </ul>
             <!-- login -->
             <ul class="nav navbar-nav navbar-right">
